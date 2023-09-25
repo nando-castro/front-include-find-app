@@ -1,7 +1,7 @@
 import { Rubik_Iso } from "next/font/google";
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
-import itemService from "./gateway/services/itemService";
+import { itemService } from "./gateway/services/itemService";
 
 const rubik = Rubik_Iso({ weight: "400", subsets: ["latin"] });
 
