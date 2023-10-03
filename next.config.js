@@ -5,6 +5,11 @@ const nextConfig = {
     loader: "akamai",
     path: "",
   },
+  exportPathMap: async function (defaultPathMap) {
+    return {
+      "/": { page: "/" },
+    };
+  },
 };
 
 module.exports = nextConfig;
