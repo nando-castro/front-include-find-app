@@ -13,6 +13,8 @@ export default function Home() {
   const [name, setName] = useState("");
   const [items, setItems] = useState([]);
 
+  const apiUrl = process.env.API_URL;
+
   function changeInput(e) {
     setName(e.target.value);
   }
@@ -20,7 +22,7 @@ export default function Home() {
   function include() {
     if (name === "") return alert("Digite um nome!");
    axios
-      .post("https://api-crud-dnla.onrender.com/item",{ name: name })
+      .post(`${apiUrl}/item`,{ name: name })
       .then((response) => {
         console.log(response.data);
       })
@@ -38,7 +40,7 @@ export default function Home() {
   function find() {
     if (name === "") return alert("Digite um nome!");
     axios
-      .get("https://api-crud-dnla.onrender.com/item",name)
+      .get(`${apiUrl}/item`,name)
       .then((response) => {
         setItems(response.data);
       })
@@ -49,7 +51,7 @@ export default function Home() {
 
   function findAll() {
     axios
-      .get("https://api-crud-dnla.onrender.com/items")
+      .get(`${apiUrl}/items`)
       .then((response) => {
         setItems(response.data);
       })

@@ -5,6 +5,9 @@ const nextConfig = {
     loader: "akamai",
     path: "",
   },
+  env: {
+    API_URL: process.env.API_URL,
+  },
   exportPathMap: async function (defaultPathMap) {
     return {
       "/": { page: "/" },
