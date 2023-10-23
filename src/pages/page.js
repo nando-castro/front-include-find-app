@@ -8,12 +8,13 @@ import { useState } from "react";
 // const inter = Inter({ subsets: ["latin"] });
 const rubik = Rubik_Iso({ weight: "400", subsets: ["latin"] });
 
+  const apiUrl = "https://back-include-find-api.onrender.com";
 
 export default function Home() {
   const [name, setName] = useState("");
   const [items, setItems] = useState([]);
 
-  const apiUrl = process.env.API_URL;
+  // const apiUrl = process.env.API_URL;
 
   function changeInput(e) {
     setName(e.target.value);
