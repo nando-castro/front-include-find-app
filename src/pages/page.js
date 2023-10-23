@@ -22,7 +22,7 @@ export default function Home() {
   function include() {
     if (name === "") return alert("Digite um nome!");
    axios
-      .post(`${apiUrl}/item`,{ name: name })
+      .post(`${apiUrl}/user`,{ name: name })
       .then((response) => {
         console.log(response.data);
       })
@@ -40,7 +40,7 @@ export default function Home() {
   function find() {
     if (name === "") return alert("Digite um nome!");
     axios
-      .get(`${apiUrl}/item`,name)
+      .get(`${apiUrl}/user`,name)
       .then((response) => {
         setItems(response.data);
       })
@@ -51,7 +51,7 @@ export default function Home() {
 
   function findAll() {
     axios
-      .get(`${apiUrl}/items`)
+      .get(`${apiUrl}/users`)
       .then((response) => {
         setItems(response.data);
       })
