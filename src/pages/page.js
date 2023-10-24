@@ -39,7 +39,7 @@ export default function Home() {
   function find() {
     if (name === "") return alert("Digite um nome!");
     axios
-      .get(`${apiUrl}/user`, name)
+      .get(`${apiUrl}/user/${name}`)
       .then((response) => {
         setUsers(response.data);
       })
