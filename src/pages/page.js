@@ -2,7 +2,7 @@ import styles from "@/styles/Home.module.css";
 import axios from "axios";
 import { Rubik_Iso } from "next/font/google";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const rubik = Rubik_Iso({ weight: "400", subsets: ["latin"] });
 
@@ -59,6 +59,10 @@ export default function Home() {
         console.log(error);
       });
   }
+
+  useEffect(() => {
+    findAll();
+  },[users])
 
   return (
     <>
