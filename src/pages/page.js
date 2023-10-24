@@ -5,7 +5,6 @@ import Head from "next/head";
 import { useState } from "react";
 
 
-// const inter = Inter({ subsets: ["latin"] });
 const rubik = Rubik_Iso({ weight: "400", subsets: ["latin"] });
 
   const apiUrl = "https://back-include-find-api.onrender.com";
