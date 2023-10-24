@@ -8,7 +8,7 @@ import { useState } from "react";
 // const inter = Inter({ subsets: ["latin"] });
 const rubik = Rubik_Iso({ weight: "400", subsets: ["latin"] });
 
-  const apiUrl = "https://back-include-find-api.onrender.com";
+  const apiUrl = "http://localhost:5000";
 
 export default function Home() {
   const [name, setName] = useState("");
