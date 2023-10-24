@@ -8,12 +8,12 @@ import { useState } from "react";
 const rubik = Rubik_Iso({ weight: "400", subsets: ["latin"] });
 
   const apiUrl = "https://back-include-find-api.onrender.com";
+  // const apiUrl = process.env.API_URL;
 
 export default function Home() {
   const [name, setName] = useState("");
-  const [items, setItems] = useState([]);
+  const [users, setUsers] = useState([]);
 
-  // const apiUrl = process.env.API_URL;
 
   function changeInput(e) {
     setName(e.target.value);
@@ -42,10 +42,11 @@ export default function Home() {
     axios
       .get(`${apiUrl}/user`,name)
       .then((response) => {
-        setItems(response.data);
+        setUsers(response.data);
       })
       .catch((error) => {
         console.log(error);
+        alert("Usuário não encontrado!")
       });
   }
 
@@ -53,7 +54,7 @@ export default function Home() {
     axios
       .get(`${apiUrl}/users`)
       .then((response) => {
-        setItems(response.data);
+        setUsers(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -97,13 +98,13 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.containerItems}>
-          <p className={styles.list}>Resultado:</p>
-          {items.length > 0 ? items.map((item, index) => (
-            <div className={styles.item} key={index}>
-              {item.name}
-            </div>
-          )) : "Não há usuários cadastrados!"}
-        </div>
+            <p className={styles.list}>Resultado:</p>
+            {users.length > 0 ? users.map((item, index) => (
+              <div className={styles.item} key={index}>
+                {item.name}
+              </div>
+            )) : <div>Não há usuários cadastrados!</div>}
+          </div>
       </div>
       <div className={styles.bottom}>
         <p className={rubik.className}>2023 &copy;</p>
