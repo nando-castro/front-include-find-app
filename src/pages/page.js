@@ -99,11 +99,11 @@ export default function Home() {
         </div>
         <div className={styles.containerItems}>
           <p className={styles.list}>Resultado:</p>
-          {items.map((item, index) => (
+          {items.length > 0 ? items.map((item, index) => (
             <div className={styles.item} key={index}>
               {item.name}
             </div>
-          ))}
+          )) : "Não há usuários cadastrados!"}
         </div>
       </div>
       <div className={styles.bottom}>
