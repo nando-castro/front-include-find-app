@@ -12,6 +12,7 @@ const apiUrl = "https://back-include-find-api.onrender.com";
 export default function Home() {
   const [name, setName] = useState("");
   const [users, setUsers] = useState([]);
+  const [atualiza, setAtualiza] = useState(false);
 
   function changeInput(e) {
     setName(e.target.value);
@@ -24,6 +25,7 @@ export default function Home() {
       .then((response) => {
         console.log(response.data);
         alert("Usuário cadastrado com sucesso!");
+        setAtualiza(!atualiza);
       })
       .catch((error) => {
         console.log(error);
@@ -62,7 +64,7 @@ export default function Home() {
 
   useEffect(() => {
     findAll();
-  },[users])
+  },[atualiza])
 
   return (
     <>
